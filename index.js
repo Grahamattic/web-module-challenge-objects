@@ -22,11 +22,11 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-    let menu = [{"Fries": "French Fries", price: 10, category: "Dinner"}]
+    let menu = [{"Fries": "French Fries", price: 10, category: "Dinner"}];
 
     const newMenuItems = [{"Doritos": "Doritos Nacho Chips", price: 3, category: "Chips"}, 
     {"Shake": "Chocolate Milk Shake", price: 5, category: "Drinks"},
-    {"Smoothie": "Mango Smoothie", price: 6, category: "Drinks"}]
+    {"Smoothie": "Mango Smoothie", price: 6, category: "Drinks"}];
 
     function createMenuItem(array) {
 
@@ -53,12 +53,12 @@ For example, burger.discount("teacher") would return 13.5 and burger.discount("p
 
     const burger = {name: "Burger", price: 18, category: "Lunch",
     discount: function(person) {
-        if (person === "Teacher") {
+        if ((person === "Teacher") || (person === "Student")) {
             percent = "25%";
             price = 18 - (18 * .25);
             console.log(`You qualify for our ${percent} ${person} discount! Your burger price is ${price}.`)
         }
-        else if (person === "Student") {
+        else {
             let percent = "10%";
             price = 18 - (18 * .10);
             console.log(`You qualify for our ${percent} ${person} discount! Your burger price is ${price}.`)
@@ -66,7 +66,7 @@ For example, burger.discount("teacher") would return 13.5 and burger.discount("p
     }
     };
 
-    burger.discount("Student");
+    burger.discount("Public");
 
 
 
@@ -92,15 +92,15 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
     function addNewRating(name,rating,feedback) {
 
-      newReview = {};
+        newReview = {};
 
-      newReview.name = name;
-      newReview.rating = rating;
-      newReview.feedback = feedback;
+        newReview.name = name;
+        newReview.rating = rating;
+        newReview.feedback = feedback;
 
-      newReviews = Object.assign(reviews, {newReview});
+        newReviews = Object.assign(reviews, {newReview});
 
-      console.log(newReviews);
+        console.log(newReviews);
     }
 
     addNewRating("Shenica", 5, "Best Dessert Ever!");
@@ -112,9 +112,9 @@ great for getting work done on weekdays" */
 
     function addNewFeedback(feedback) {
 
-      reviews[7].feedback = feedback;
+        reviews[7].feedback = feedback;
 
-      console.log(reviews[7].feedback);
+        console.log(reviews[7].feedback);
     }
 
     addNewFeedback("this place is chill with really cool people, great for getting work done on weekdays");
@@ -146,11 +146,11 @@ and should return a string in the format `{name} gave the restaurant a {rating},
 
     function getReviewByIndex(array, index) {
 
-      let name = array[index].name;
-      let rating = array[index].rating;
-      let feedback = array[index].feedback;
+        let name = array[index].name;
+        let rating = array[index].rating;
+        let feedback = array[index].feedback;
         
-      console.log(`${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`);
+        console.log(`${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`);
     }
 
     getReviewByIndex(reviews,3);
@@ -178,13 +178,13 @@ star review and their feedback was: "this place is chill with really cool people
 
     function getLastReview(array) {
 
-      let last = reviews.length-1;
+        let last = reviews.length-1;
 
-      let name = array[last].name;
-      let rating = array[last].rating;
-      let feedback = array[last].feedback;
+        let name = array[last].name;
+        let rating = array[last].rating;
+        let feedback = array[last].feedback;
       
-      console.log(`${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`);
+        console.log(`${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`);
     }
 
     getLastReview(reviews);
@@ -209,15 +209,15 @@ star review and their feedback was: "this place is chill with really cool people
 
     function getReviewByRating(array, rate) {
 
-      let newReviews = [];
+        let newReviews = [];
 
-      for(i = 0; i < array.length; i++) {
-          if ((array[i].rating < rate + 1) && (array[i].rating >= rate)) {
-              newReviews.push(array[i]);
-          }
-      }
+        for(i = 0; i < array.length; i++) {
+            if ((array[i].rating < rate + 1) && (array[i].rating >= rate)) {
+                newReviews.push(array[i]);
+            }
+        }
 
-      console.log(newReviews);
+        console.log(newReviews);
     }
 
     getReviewByRating(reviews, 4);
