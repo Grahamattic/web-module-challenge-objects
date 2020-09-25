@@ -6,53 +6,37 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-    function createMenuItem(itemKey, itemName,itemPrice,itemCategory) {
+    const newMenuItem = [{"Fries": "French Fries", price: 10, category: "Dinner"}]
 
-        let newMenuItem = {};
+    function createMenuItem(array) {
 
-        newMenuItem.name = itemName;
-        newMenuItem.price = itemPrice;
-        newMenuItem.category = itemCategory;
+        for (i = 0; i < array.length; i++) {
 
-        menu = Object.assign(menu, {newMenuItem});
-        console.log(menu);  
+            console.log(array[i]);
+        }
     }
 
-    createMenuItem("Smoothie", "Strawberry Smoothie", 6, "Drinks");
+    createMenuItem(newMenuItem);
 
 
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-function createMenuItem(itemKey,itemName,itemPrice,itemCategory) {
+    let menu = [{"Fries": "French Fries", price: 10, category: "Dinner"}]
 
-    let menu = {};
-    menu.latte = latte;
-    menu.burger = burger;
-    menu.breakfastBurrito = breakfastBurrito;
+    const newMenuItems = [{"Doritos": "Doritos Nacho Chips", price: 3, category: "Chips"}, 
+    {"Shake": "Chocolate Milk Shake", price: 5, category: "Drinks"},
+    {"Smoothie": "Mango Smoothie", price: 6, category: "Drinks"}]
 
-    //console.log(itemKey);
-    itemKey = {};
+    function createMenuItem(array) {
 
-    for (i = 0; i < 3; i++) {
-
-        itemKey.name = itemName;
-        itemKey.price = itemPrice;
-        itemKey.category = itemCategory;
-
-        menu = Object.assign(menu, {itemKey});
+        for (i = 0; i < array.length; i++) {
+            menu = Object.assign(menu, {array});
+        }
+        console.log(menu);
     }
 
-    let newMenu = menu;
-    newMenu = Object.assign(newMenu, menu);
-    console.log(newMenu);
-}
-
-createMenuItem("Fries", "French Fries", 10, "Dinner");
-
-createMenuItem("Shake", "Chocolate Milk Shake", 5, "Drinks");
-
-createMenuItem("Smoothie", "Mango Smoothie", 6, "Drinks");
+    createMenuItem(newMenuItems);
 
 
     
@@ -255,24 +239,16 @@ and should return an array of objects.
 */
     function getLongestReview(array) {
 
-      const stringArray = [];
-      let longReview = {};
+        const feedbackArray = [];
 
-      // Convert the array to a new string array.
-      for(i = 0; i < array.length; i++) {
-          if (array[i] !== " ") {
-              stringArray.push(array[i]);
-
-              // Count the number of strings in the stringArray.
-              const count = stringArray.length;
-
-              // If stringArray contains more than 15 strings, add feedback to longReview object.
-              if (stringArray > 15) {
-                  longReview.push(array[i]);
-              }
-          }
-      }
-      console.log(longReview);
+        for(i = 0; i < array.length; i++) {
+            
+            if ((array[i] !== " ") && (array[i].feedback.length >= 79)) {
+                
+                feedbackArray.push(array[i]);
+            }
+        }
+        console.log(feedbackArray);
     }
 
     getLongestReview(reviews);
